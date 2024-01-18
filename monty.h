@@ -42,17 +42,17 @@ void getLineNumber(size_t line_number);
 void freeDlistint(stack_t *head);
 
 /* Operation functions */
-void pushOp(stack_t **stack);
-void pallOp(stack_t **stack);
-void pintOp(stack_t **stack);
-void popOp(stack_t **stack);
-void addOp(stack_t **stack);
-void subOp(stack_t **stack);
-void multiOp(stack_t **stack);
-void divOp(stack_t **stack);
-void pcharOp(stack_t **stack);
-void pstrOp(stack_t **stack);
-void rotlOp(stack_t **stack);
-void rotrOp(stack_t **stack);
+void push(stack_t **stack);
+void pall(stack_t **stack);
+void pint(stack_t **stack);
+void pop(stack_t **stack);
+void add(stack_t **stack);
+void sub(stack_t **stack);
+void multi(stack_t **stack);
+void div(stack_t **stack);
+void pchar(stack_t **stack);
+void pstr(stack_t **stack);
+void rotl(stack_t **stack);
+void rotr(stack_t **stack);
 
 #endif /* MONTY_H */

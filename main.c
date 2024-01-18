@@ -49,9 +49,9 @@ int main(int argc, char const *argv[])
 void runMonty(stack_t **stack, char *cmd)
 {
 	instruction_t instructions[] = {
-		{"push", pushOp}, {"pall", pallOp}, {"pint", pintOp}, {"pop", popOp}, {"swap", swapOp},
-		{"add", addOp}, {"nop", nopOp}, {"sub", subOp}, {"div", divOp}, {"mul", multiOp},
-		{"mod", modOp}, {"pchar", pcharOp}, {"pstr", pstrOp}, {"rotl", rotlOp}, {"rotr", rotrOp},
+		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap},
+		{"add", add}, {"nop", nop}, {"sub", sub}, {"div", div}, {"mul", multi},
+		{"mod", mod}, {"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},
 		{"stack", stackMode}, {"queue", queueMode}, {NULL, NULL}
 	};
 
@@ -64,7 +64,7 @@ void runMonty(stack_t **stack, char *cmd)
 		}
 	}
 
-	fprintf(stderr, "L%d: unknown instruction %s\n", currentLine, cmd);
+	fprintf(stderr, "L%zu: unknown instruction %s\n", numLine, cmd);
 	_exit(EXIT_FAILURE);
 }
 
