@@ -48,6 +48,7 @@ void run_monty(stack_t **stack, char *command)
 							  {"pop", pop},
 							  {"swap", swap},
 							  {"add", add},
+							  {"nop", nop},
 							  {NULL, NULL}};
 
 	for (i = 0; instructions[i].opcode; i++)
