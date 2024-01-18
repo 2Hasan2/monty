@@ -12,8 +12,8 @@ size_t p_listint(const stack_t *h)
 	while (h)
 	{
 		printf("%d\n", h->n);
-		size++;
 		h = h->next;
+		size++;
 	}
 	return (size);
 }
@@ -31,8 +31,8 @@ stack_t *add_node_int(stack_t **head, const int n)
 	if (!newNode)
 		return (NULL);
 	newNode->n = n;
-	newNode->prev = NULL;
 	newNode->next = *head;
+	newNode->prev = NULL;
 	if (*head)
 		(*head)->prev = newNode;
 	*head = newNode;
@@ -73,12 +73,12 @@ stack_t *add_node_int_end(stack_t **head, const int n)
  */
 void free_listint(stack_t *head)
 {
-	stack_t *h = head;
+	stack_t *temp;
 
-	while (h)
+	while (head)
 	{
-		h = h->next;
-		free(head);
-		head = h;
+		temp = head;
+		head = head->next;
+		free(temp);
 	}
 }
