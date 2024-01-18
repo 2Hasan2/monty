@@ -60,26 +60,20 @@ void run_monty(stack_t **stack, char *command);
 void push(stack_t **stack);
 void pall(stack_t **stack);
 void pint(stack_t **stack);
-void pop_op(stack_t **stack);
-void swap_op(stack_t **stack);
+void pop(stack_t **stack);
+void swap(stack_t **stack);
 
-/* ========== op_instructions_2.c ========== */
+void add(stack_t **stack);
+void nop(stack_t **stack);
+void sub(stack_t **stack);
+void DIV(stack_t **stack);
+void multi(stack_t **stack);
 
-void add_op(stack_t **stack);
-void nop_op(stack_t **stack);
-void sub_op(stack_t **stack);
-void div_op(stack_t **stack);
-void multi_op(stack_t **stack);
-
-/* ========== op_instructions_3.c ========== */
-
-void mod_op(stack_t **stack);
-void pchar_op(stack_t **stack);
-void pstr_op(stack_t **stack);
-void rotl_op(stack_t **stack);
-void rotr_op(stack_t **stack);
-
-/* ========== op_instructions_4.c ========== */
+void mod(stack_t **stack);
+void pchar(stack_t **stack);
+void pstr(stack_t **stack);
+void rotl(stack_t **stack);
+void rotr(stack_t **stack);
 
 void stack_mode(stack_t **stack);
 void queue_mode(stack_t **stack);
