@@ -1,9 +1,8 @@
 #include "monty.h"
 
 /**
- * _exit - Exits the program.
- * @status: The status to exit with.
- *
+ * _free - Frees a pointer.
+ * @ptr: A pointer to the pointer to free.
  * Return: No return value.
  */
 void _free(void **ptr)
@@ -30,6 +29,14 @@ void *_malloc(unsigned int size)
 	return (ptr);
 }
 
+
+/**
+ * _realloc - Reallocates a memory block using malloc and free.
+ * @ptr: A pointer to the memory previously allocated.
+ * @new_size: The new size of the memory block.
+ *
+ * Return: A pointer to the reallocated memory.
+ */
 
 void *_realloc(void *ptr, int new_size)
 {

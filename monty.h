@@ -54,7 +54,7 @@ stack_t *add_node_int_end(stack_t **head, const int n);
 size_t p_listint(const stack_t *h);
 stack_t *get_node_index(stack_t *head, unsigned int index);
 int current_mode(int number);
-void run_monty(stack_t **stack, char *command);
+void monty_handle(stack_t **stack, char *command);
 
 
 void push(stack_t **stack);
