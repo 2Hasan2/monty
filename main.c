@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	else
 	{
-		char line[buffer_size];
+		char line[Buffer_Size];
 		size_t num_line = 0;
 		char *command;
 		FILE *fp = fopen(argv[1], "r");
