@@ -1,96 +1,80 @@
 #include "monty.h"
 
 /**
- * _free - free pointer and set it to NULL
- * @ptr: pointer to free (void **)
- * Return: void
- * by Ashraf-Atef1 && AhMeDMaGDY28
+ * _exit - Exits the program.
+ * @status: The status to exit with.
+ *
+ * Return: No return value.
  */
 void _free(void **ptr)
 {
-	if (*ptr)
-		free(*ptr), *ptr = NULL;
+	if (ptr && *ptr)
+	{
+		free(*ptr);
+		*ptr = NULL;
+	}
 }
 
 /**
- * _malloc - allocate memory and check if it failed
- * @size: size of memory to allocate (unsigned int)
- * Return: pointer to allocated memory (void *)
- * by Ashraf-Atef1 && AhMeDMaGDY28
+ * _malloc - Allocates memory using malloc.
+ * @size: The size of the memory to allocate.
+ *
+ * Return: A pointer to the allocated memory.
  */
 void *_malloc(unsigned int size)
 {
-	void *str = malloc(size);
-	unsigned int i = 0;
+	void *ptr = malloc(size);
 
-	if (!str)
-	{
-		_Free(str);
-		printf("Error: malloc failed\n"), _exit;
-	}
-	while (i < size)
-		((char *)str)[i++] = '\0';
-	return (str);
+	if (ptr == NULL)
+		fprintf(stderr, "Error: malloc failed\n"), _exit;
+	return (ptr);
 }
 
-/**
- * _realloc - reallocate memory and check if it failed
- * @ptr: pointer to reallocate (void **)
- * @new_size: new size of memory to allocate (unsigned int)
- * Return: pointer to reallocated memory (void *)
- * by Ashraf-Atef1 && AhMeDMaGDY28
- */
+
 void *_realloc(void *ptr, int new_size)
 {
-	void *temp;
+	void *new_ptr;
 
-	if (ptr && new_size < (int)strlen(ptr))
+	if (ptr == NULL)
 	{
-		_Free(ptr);
+		new_ptr = malloc(new_size);
+		if (new_ptr == NULL)
+			fprintf(stderr, "Error: malloc failed\n"), _exit;
+		return (new_ptr);
+	}
+	if (new_size == 0)
+	{
+		free(ptr);
 		return (NULL);
 	}
-	temp = _malloc(new_size);
-	memcpy(temp, ptr, ptr ? strlen(ptr) : 0);
-	_Free(ptr);
-	return (temp);
+	new_ptr = malloc(new_size);
+	if (new_ptr == NULL)
+		fprintf(stderr, "Error: malloc failed\n"), _exit;
+	memcpy(new_ptr, ptr, new_size);
+	free(ptr);
+	return (new_ptr);
 }
 /**
- * get_line_number - Retrieves or sets the current line number.
- * @n: The new line number to be set (if >= 0).
+ * get_line_number - Gets the line number.
+ * @n: The new line number.
  *
- * This function either retrieves the current line
- * number or sets it to a new value
- * if the provided value is non-negative.
- * It maintains the line number across calls
- * using a static variable.
- * If a non-negative value is passed, it updates the line number.
- *
- * Return: The current line number.
-*
- */
+ * Return: The line number.
+*/
 int get_line_number(int n)
 {
-	static int line_number = -1;
+	static int num_line;
 
 	if (n >= 0)
-		line_number = n;
-	return (line_number);
+		num_line = n;
+	return (num_line);
 }
+
 /**
- * handle_exit - Handles cleanup and
- * exit operations based on the specified state.
- * @ptr: A pointer to the data needed for cleanup (stack or FILE pointer).
- * @state: The state indicating the type of cleanup or exit operation.
- *
- * This function handles different cleanup and
- * exit operations based on the specified state:
- * - State 1: Set the stack pointer.
- * - State 2: Set the FILE pointer.
- * - State 0: Perform cleanup operations,
- * such as freeing the stack and closing the FILE.
+ * handle_exit - Handles the exit.
+ * @ptr: A pointer to the stack.
+ * @state: The state to set.
  *
  * Return: No return value.
-*
  */
 void handle_exit(void *ptr, int state)
 {
@@ -103,10 +87,9 @@ void handle_exit(void *ptr, int state)
 		fp = (FILE **)ptr;
 	else if (state == 0)
 	{
-		if (stack)
+		if (*stack)
 			free_listint(*stack);
-		if (fp && *fp)
+		if (*fp)
 			fclose(*fp);
-		exit(EXIT_FAILURE);
 	}
 }
