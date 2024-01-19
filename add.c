@@ -3,7 +3,7 @@
 /**
  * add - adds the top two elements of the stack.
  * @stack: a pointer to the pointer to the head of the stack.
- * Return: No return value.
+ * Return: no return value.
  */
 
 void add(stack_t **stack)
