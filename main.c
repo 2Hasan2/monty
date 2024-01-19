@@ -2,7 +2,7 @@
 
 /**
  * main - Entry point.
- * @argc: the number of arguments passed to the program.
+ * @argc: The number of arguments passed to the program.
  * @argv: an array of pointers to the arguments.
  * Return: Always 0.
 */
