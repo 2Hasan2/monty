@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * nop - Does nothing.
+ * nop - does nothing.
  * @stack: A pointer to the pointer to the head of the stack.
  * Return: No return value.
  */
