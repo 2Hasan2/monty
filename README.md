@@ -1,6 +1,6 @@
 # Monty Language Interpreter
 
-This repository contains a simple interpreter for the Monty language, written in C.
+This repo contains a simple interpreter for the Monty language, written in C.
 
 ## Files
 
