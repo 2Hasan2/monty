@@ -3,7 +3,7 @@
 /**
  * nop - does nothing.
  * @stack: a pointer to the pointer to the head of the stack.
- * Return: No return value.
+ * Return: no return value.
  */
 
 void nop(stack_t **stack)
